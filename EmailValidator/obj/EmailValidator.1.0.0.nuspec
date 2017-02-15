@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>EmailValidator</id>
+    <version>1.0.0</version>
+    <authors>EmailValidator</authors>
+    <owners>EmailValidator</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp1.0">
+        <dependency id="Microsoft.AspNetCore" version="1.0.3" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="1.0.1" exclude="Build,Analyzers" />
+        <dependency id="DnsClient" version="1.0.3" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.NETCore.App" version="1.1.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="1.0.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.ApplicationInsights.AspNetCore" version="2.0.0-beta1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/netcoreapp1.0/web.config" buildAction="Content" />
+      <files include="any/netcoreapp1.0/appsettings.Development.json" buildAction="Content" />
+      <files include="any/netcoreapp1.0/appsettings.json" buildAction="Content" />
+      <files include="any/netcoreapp1.0/launchSettings.json" buildAction="Content" />
+      <files include="any/netcoreapp1.0/runtimeconfig.template.json" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.dll" target="lib\netcoreapp1.0\EmailValidator.dll" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\web.config" target="content\web.config" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\web.config" target="contentFiles\any\netcoreapp1.0\web.config" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\appsettings.Development.json" target="content\appsettings.Development.json" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\appsettings.Development.json" target="contentFiles\any\netcoreapp1.0\appsettings.Development.json" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\appsettings.json" target="content\appsettings.json" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\appsettings.json" target="contentFiles\any\netcoreapp1.0\appsettings.json" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\Properties\launchSettings.json" target="content\launchSettings.json" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\Properties\launchSettings.json" target="contentFiles\any\netcoreapp1.0\launchSettings.json" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\runtimeconfig.template.json" target="content\runtimeconfig.template.json" />
+    <file src="c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\runtimeconfig.template.json" target="contentFiles\any\netcoreapp1.0\runtimeconfig.template.json" />
+  </files>
+</package>

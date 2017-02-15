@@ -1,0 +1,9 @@
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.deps.json
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.runtimeconfig.json
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.runtimeconfig.dev.json
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.dll
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.pdb
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.0\EmailValidator.AssemblyInfo.cs
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.0\EmailValidator.dll
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.0\EmailValidator.pdb
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.0\Bdev.Net.Dns.dll

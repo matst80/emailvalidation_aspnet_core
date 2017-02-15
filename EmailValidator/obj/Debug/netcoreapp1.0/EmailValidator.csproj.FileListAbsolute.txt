@@ -7,3 +7,12 @@ c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidat
 c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.0\EmailValidator.dll
 c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.0\EmailValidator.pdb
 c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.0\Bdev.Net.Dns.dll
+C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.deps.json
+C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.runtimeconfig.json
+C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.runtimeconfig.dev.json
+C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.dll
+C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.0\EmailValidator.pdb
+C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.0\EmailValidator.csprojResolveAssemblyReference.cache
+C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.0\EmailValidator.AssemblyInfo.cs
+C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.0\EmailValidator.dll
+C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.0\EmailValidator.pdb

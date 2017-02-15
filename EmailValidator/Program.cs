@@ -14,7 +14,7 @@ namespace EmailValidator
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
+                //.UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .UseApplicationInsights()

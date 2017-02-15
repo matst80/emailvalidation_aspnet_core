@@ -206,10 +206,9 @@ namespace EmailValidator.Controllers
     }
 
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class ValidateController : Controller
     {
 
-        // GET api/values/5
         [HttpGet("{email}")]
         public ValidationResult Validate(string email)
         {

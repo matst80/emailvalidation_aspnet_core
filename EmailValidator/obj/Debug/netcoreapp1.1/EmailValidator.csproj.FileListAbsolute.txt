@@ -9,3 +9,15 @@ C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj
 C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.AssemblyInfo.cs
 C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.dll
 C:\Users\mats_\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.pdb
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.x86.dll
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.amd64.dll
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.deps.json
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.runtimeconfig.json
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.runtimeconfig.dev.json
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.dll
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.pdb
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\bin\Debug\netcoreapp1.1\Bdev.Net.Dns.dll
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.csprojResolveAssemblyReference.cache
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.AssemblyInfo.cs
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.dll
+c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.pdb

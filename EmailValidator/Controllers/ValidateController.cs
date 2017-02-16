@@ -6,9 +6,136 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 using System.Net;
 using DnsClient;
+using System.Threading;
 
 namespace EmailValidator.Controllers
 {
+    public static class AsyncHelpers
+    {
+        /// <summary>
+        /// Execute's an async Task<T> method which has a void return value synchronously
+        /// </summary>
+        /// <param name="task">Task<T> method to execute</param>
+        public static void RunSync(Func<Task> task)
+        {
+            var oldContext = SynchronizationContext.Current;
+            var synch = new ExclusiveSynchronizationContext();
+            SynchronizationContext.SetSynchronizationContext(synch);
+            synch.Post(async _ =>
+            {
+                try
+                {
+                    await task();
+                }
+                catch (Exception e)
+                {
+                    synch.InnerException = e;
+                    throw;
+                }
+                finally
+                {
+                    synch.EndMessageLoop();
+                }
+            }, null);
+            synch.BeginMessageLoop();
+
+            SynchronizationContext.SetSynchronizationContext(oldContext);
+        }
+
+        /// <summary>
+        /// Execute's an async Task<T> method which has a T return type synchronously
+        /// </summary>
+        /// <typeparam name="T">Return Type</typeparam>
+        /// <param name="task">Task<T> method to execute</param>
+        /// <returns></returns>
+        public static T RunSync<T>(Func<Task<T>> task)
+        {
+            var oldContext = SynchronizationContext.Current;
+            var synch = new ExclusiveSynchronizationContext();
+            SynchronizationContext.SetSynchronizationContext(synch);
+            T ret = default(T);
+            synch.Post(async _ =>
+            {
+                try
+                {
+                    ret = await task();
+                }
+                catch (Exception e)
+                {
+                    synch.InnerException = e;
+                    throw;
+                }
+                finally
+                {
+                    synch.EndMessageLoop();
+                }
+            }, null);
+            synch.BeginMessageLoop();
+            SynchronizationContext.SetSynchronizationContext(oldContext);
+            return ret;
+        }
+
+        private class ExclusiveSynchronizationContext : SynchronizationContext
+        {
+            private bool done;
+            public Exception InnerException { get; set; }
+            readonly AutoResetEvent workItemsWaiting = new AutoResetEvent(false);
+            readonly Queue<Tuple<SendOrPostCallback, object>> items =
+                new Queue<Tuple<SendOrPostCallback, object>>();
+
+            public override void Send(SendOrPostCallback d, object state)
+            {
+                throw new NotSupportedException("We cannot send to our same thread");
+            }
+
+            public override void Post(SendOrPostCallback d, object state)
+            {
+                lock (items)
+                {
+                    items.Enqueue(Tuple.Create(d, state));
+                }
+                workItemsWaiting.Set();
+            }
+
+            public void EndMessageLoop()
+            {
+                Post(_ => done = true, null);
+            }
+
+            public void BeginMessageLoop()
+            {
+                while (!done)
+                {
+                    Tuple<SendOrPostCallback, object> task = null;
+                    lock (items)
+                    {
+                        if (items.Count > 0)
+                        {
+                            task = items.Dequeue();
+                        }
+                    }
+                    if (task != null)
+                    {
+                        task.Item1(task.Item2);
+                        if (InnerException != null) // the method threw an exeption
+                        {
+                            throw new AggregateException("AsyncHelpers.Run method threw an exception.", InnerException);
+                        }
+                    }
+                    else
+                    {
+                        workItemsWaiting.WaitOne();
+                    }
+                }
+            }
+
+            public override SynchronizationContext CreateCopy()
+            {
+                return this;
+            }
+        }
+    }
+
     public class ValidationData
     {
         public string FirstName { get; set; }
@@ -24,6 +151,8 @@ namespace EmailValidator.Controllers
         public bool Probable { get; set; }
         public bool Corrected { get; set; }
         public string ResultEmail { get; set; }
+        public string MailBox { get; set; }
+        public string DomainIp { get; set; }
         public ValidationData Result { get; set; }
 
         public static Regex emailRegEx = new Regex("^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$", RegexOptions.Compiled);
@@ -57,9 +186,9 @@ namespace EmailValidator.Controllers
             if (email.Contains("@"))
             {
                 var dp = email.Split('@');
-                if (dp.Length>0)
+                if (dp.Length > 0)
                 {
-                    email = string.Join(".",dp.Select(d=>d.Trim()).Take(dp.Length-1))+"@"+dp.Last().Trim();
+                    email = string.Join(".", dp.Select(d => d.Trim()).Take(dp.Length - 1)) + "@" + dp.Last().Trim();
                 }
             }
             foreach (var td in topDomains)
@@ -120,15 +249,22 @@ namespace EmailValidator.Controllers
             var name = parts[0];
             var splitChar = '.';
             if (name.IndexOf(splitChar) == -1)
+                splitChar = '_';
+            if (name.IndexOf(splitChar) == -1)
                 splitChar = '-';
             var nameParts = name.Split(splitChar);
             if (nameParts.Length > 1)
             {
                 if (nameParts[0].Length > 2 && nameParts[1].Length > 2)
                     Result.HasProbableName = true;
-                Result.FirstName = nameParts[0];
-                Result.LastName = nameParts[1];
+                Result.FirstName = FixFirstChar(nameParts[0]);
+                Result.LastName = FixFirstChar(nameParts[1]);
             }
+        }
+
+        private string FixFirstChar(string input)
+        {
+            return input.First().ToString().ToUpper() + input.Substring(1).ToLower();
         }
 
         private string CleanSpelling(string email)
@@ -150,7 +286,7 @@ namespace EmailValidator.Controllers
             return ret;
         }
 
-        private char[] domainSplitChars = new char[] { ' ', ',', '.' };
+        private char[] domainSplitChars = new char[] { ' ', ',', '.', '-', '_' };
 
         private string CleanDomain(string email)
         {
@@ -189,12 +325,18 @@ namespace EmailValidator.Controllers
         {
             try
             {
-                var domain = email.Split('@').LastOrDefault();
+                var parts = email.Split('@');
+                var mailBox = parts.FirstOrDefault();
+                var domain = parts.LastOrDefault();
                 var lookup = new LookupClient();
                 var result = lookup.Query(domain, QueryType.MX);
 
                 var record = result.Answers.MxRecords().FirstOrDefault();
+                MailBox = mailBox;
+                var fip = AsyncHelpers.RunSync<IPAddress[]>(() => Dns.GetHostAddressesAsync(record.Exchange.Value)).FirstOrDefault();
 
+
+                DomainIp = fip.ToString();
                 //Query(dnsServer, domain, DnsType.MX);
                 return record != null;
             }
@@ -214,6 +356,21 @@ namespace EmailValidator.Controllers
         {
             var ret = new ValidationResult();
             ret.Validate(email);
+            return ret;
+        }
+
+
+    }
+
+    [Route("api/[controller]")]
+    public class MailboxController : Controller
+    {
+
+        [HttpGet("{ip}/{box}")]
+        public MailBoxResult Validate(string ip, string email)
+        {
+            var ret = new MailBoxResult();
+            ret.Validate(ip,email);
             return ret;
         }
 

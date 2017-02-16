@@ -6,13 +6,12 @@
   "compilationOptions": {
     "defines": [
       "TRACE",
-      "DEBUG",
-      "NETCOREAPP1_1"
+      "NETCOREAPP1_1",
+      "DEBUG"
     ],
     "languageVersion": "",
     "platform": "",
     "allowUnsafe": false,
-    "warningsAsErrors": false,
     "optimize": false,
     "keyFile": "",
     "emitEntryPoint": true,
@@ -3693,28 +3692,28 @@
     "microsoft.codeanalysis.analyzers/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IvbcbuCh/Qs6bfGmTep0ezAlF8nmsO9MAcf1WbNQ7YU40s176ASGlvqy/oVfMwSxjCg9cXQX7bAt4eQP+ezyvA==",
+      "sha512": "sha512-HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "hashPath": "microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512"
     },
     "microsoft.codeanalysis.common/1.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kiN8677/GOecc1Kg9g+hDhI175gk4D0GfB26GjWlkD2e3rlggZvC8IdqL+tA4pQoe+MsTm+SN9d7rE6cRGXwgA==",
+      "sha512": "sha512-V09G35cs0CT1C4Dr1IEOh8IGfnWALEVAOO5JXsqagxXwmYR012TlorQ+vx2eXxfZRKs3gAS/r92gN9kRBLba5A==",
       "path": "microsoft.codeanalysis.common/1.3.0",
       "hashPath": "microsoft.codeanalysis.common.1.3.0.nupkg.sha512"
     },
     "microsoft.codeanalysis.csharp/1.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kY+8EHwxKQ1yiZk7eVcld6k02/qT9MnG8+seRY36kCwshFilX8JgoKxRXpzhgl8eSytXnrCHW+1yDiI1J2vD+w==",
+      "sha512": "sha512-BgWDIAbSFsHuGeLSn/rljLi51nXqkSo4DZ0qEIrHyPVasrhxEVq7aV8KKZ3HEfSFB+GIhBmOogE+mlOLYg19eg==",
       "path": "microsoft.codeanalysis.csharp/1.3.0",
       "hashPath": "microsoft.codeanalysis.csharp.1.3.0.nupkg.sha512"
     },
     "microsoft.codeanalysis.visualbasic/1.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hV/cMEVDVb+LxkeHrC1pzN6fyXj4OpN9MRNZO6sqbVNC1AZZ2PhUfhjBPXPlgPmnOEo8aqNVXN3gHH6RwLW5QA==",
+      "sha512": "sha512-Sf3k8PkTkWqBmXnnblJbvb7ewO6mJzX6WO2t7m04BmOY5qBq6yhhyXnn/BMM+QCec3Arw3X35Zd8f9eBql0qgg==",
       "path": "microsoft.codeanalysis.visualbasic/1.3.0",
       "hashPath": "microsoft.codeanalysis.visualbasic.1.3.0.nupkg.sha512"
     },
@@ -4015,7 +4014,7 @@
     "system.diagnostics.fileversioninfo/4.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UGlK2HQ13TheNqBR6tuU7CAIrw7VQUm3w5JQqqa/CGISx8CfBl+FhGXbTkpITbzVFbjEbe2LDhso/OCTZYGNUg==",
+      "sha512": "sha512-qjF74OTAU+mRhLaL4YSfiWy3vj6T3AOz8AW37l5zCwfbBfj0k7E94XnEsRaf2TnhE/7QaV6Hvqakoy2LoV8MVg==",
       "path": "system.diagnostics.fileversioninfo/4.0.0",
       "hashPath": "system.diagnostics.fileversioninfo.4.0.0.nupkg.sha512"
     },
@@ -4533,14 +4532,14 @@
     "system.xml.xpath/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-flT4iSdYYZQu1bCv9T0yrIf2F0y5LCZ49GL3inyzhmQBMlweqQ5RMaArAAi3Y2MwWxxSLHHTINavJ6Mj3qXyew==",
+      "sha512": "sha512-UWd1H+1IJ9Wlq5nognZ/XJdyj8qPE4XufBUkAW59ijsCPjZkZe0MUzKKJFBr+ZWBe5Wq1u1d5f2CYgE93uH7DA==",
       "path": "system.xml.xpath/4.0.1",
       "hashPath": "system.xml.xpath.4.0.1.nupkg.sha512"
     },
     "system.xml.xpath.xdocument/4.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Y48kE0qiY8juVLq0OA6PftM2MjCNTf4+0Hhq3sVtFzcgT9ynjxR2SMs3x3cH40Mcex49hIIlDVjeTQxsq1CZCA==",
+      "sha512": "sha512-FLhdYJx4331oGovQypQ8JIw2kEmNzCsjVOVYY/16kZTUoquZG85oVn7yUhBE2OZt1yGPSXAL0HTEfzjlbNpM7Q==",
       "path": "system.xml.xpath.xdocument/4.0.1",
       "hashPath": "system.xml.xpath.xdocument.4.0.1.nupkg.sha512"
     }

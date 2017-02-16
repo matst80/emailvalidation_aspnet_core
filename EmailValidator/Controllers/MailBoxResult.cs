@@ -41,7 +41,7 @@ namespace EmailValidator.Controllers
                 var fromAnswer = GetString(s);
                 Send("rcpt to: <"+email+">", s);
                 var result = GetString(s);
-                if (result.Contains(" OK "))
+                if (result.Contains(" OK"))
                     Exists = true;
             }
             Send("quit", s);

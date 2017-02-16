@@ -366,7 +366,7 @@ namespace EmailValidator.Controllers
     public class MailboxController : Controller
     {
 
-        [HttpGet("{ip}/{box}")]
+        [HttpGet("{ip}/{email}")]
         public MailBoxResult Validate(string ip, string email)
         {
             var ret = new MailBoxResult();

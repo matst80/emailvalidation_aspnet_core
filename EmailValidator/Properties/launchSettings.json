@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "/api/mailbox/173.194.67.26/mats.tornberg@gmail.com",
+      "launchUrl": "api/mailbox/173.194.67.26/mats.tornberg@gmail.com",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,7 +19,7 @@
     "EmailValidator": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "/api/mailbox/173.194.67.26/mats.tornberg@gmail.com",
+      "launchUrl": "api/mailbox/173.194.67.26/mats.tornberg@gmail.com",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

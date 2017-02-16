@@ -21,3 +21,14 @@ c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidat
 c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.AssemblyInfo.cs
 c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.dll
 c:\users\mats_\documents\visual studio 2017\Projects\EmailValidator\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.pdb
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.deps.json
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.runtimeconfig.json
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.runtimeconfig.dev.json
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.dll
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\bin\Debug\netcoreapp1.1\EmailValidator.pdb
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.AssemblyInfo.cs
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.dll
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.pdb
+C:\Users\mats\Documents\emailval\emailvalidation_aspnet_core\EmailValidator\obj\Debug\netcoreapp1.1\EmailValidator.csprojResolveAssemblyReference.cache

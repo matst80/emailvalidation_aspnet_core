@@ -212,7 +212,7 @@ namespace EmailValidator.Controllers
                 //Query(dnsServer, domain, DnsType.MX);
                 return record != null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

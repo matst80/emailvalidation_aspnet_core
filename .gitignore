@@ -271,3 +271,6 @@ paket-files/
 __pycache__/
 *.pyc
 .vscode/solution-explorer/
+/EmailValidator/.vscode/
+/EmailValidator/obj/
+/EmailValidator/bin/

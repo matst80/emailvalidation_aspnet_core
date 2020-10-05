@@ -1,8 +1,0 @@
-version: '2'
-
-services:
-  emailvalidator:
-    image: emailvalidator
-    build:
-      context: ./EmailValidator
-      dockerfile: Dockerfile

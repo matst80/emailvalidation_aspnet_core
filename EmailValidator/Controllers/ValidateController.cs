@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmailValidator.Controllers
@@ -11,10 +12,10 @@ namespace EmailValidator.Controllers
     {
 
         [HttpGet("{email}")]
-        public ValidationResult Validate(string email)
+        public async Task<ValidationResult> Validate(string email)
         {
             var ret = new ValidationResult();
-            ret.Validate(email);
+            await ret.Validate(email);
             return ret;
         }
 

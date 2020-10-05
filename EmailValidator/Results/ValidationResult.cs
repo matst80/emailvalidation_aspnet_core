@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace EmailValidator.Controllers
 {
@@ -86,7 +87,7 @@ namespace EmailValidator.Controllers
             return email;
         }
 
-        internal void Validate(string email)
+        internal async Task Validate(string email)
         {
             ResultEmail = email.ToLower().Trim();
             var eml = FixCommon(ResultEmail.Replace(",", ".").TrimEnd('.', ',', ';'));
@@ -99,7 +100,7 @@ namespace EmailValidator.Controllers
             {
                 eml = CleanSpelling(eml);
             }
-            if (MxCheckDomain(eml))
+            if (await MxCheckDomain(eml))
             {
                 DomainExists = true;
                 Valid = true;
@@ -192,7 +193,7 @@ namespace EmailValidator.Controllers
             return (topDomains.Contains(topDomain));
         }
 
-        private bool MxCheckDomain(string email)
+        private async Task<bool> MxCheckDomain(string email)
         {
             try
             {
@@ -204,7 +205,7 @@ namespace EmailValidator.Controllers
 
                 var record = result.Answers.MxRecords().FirstOrDefault();
                 MailBox = mailBox;
-                var fip = AsyncHelpers.RunSync<IPAddress[]>(() => Dns.GetHostAddressesAsync(record.Exchange.Value)).FirstOrDefault();
+                var fip = (await Dns.GetHostAddressesAsync(record.Exchange.Value)).FirstOrDefault();
 
 
                 DomainIp = fip.ToString();

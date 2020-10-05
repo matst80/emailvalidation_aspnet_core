@@ -10,16 +10,16 @@ namespace EmailValidator.Controllers
         public bool Exists { get; set; }
         public bool ServerAnswer { get; set; }
 
-        internal void Send(string data, Socket s)
+        internal void Send(string data, Socket socket)
         {
             var sendData = Encoding.UTF8.GetBytes(data+"\r\n");
-            s.Send(sendData);
+            socket.Send(sendData);
         }
 
-        internal string GetString(Socket s)
+        internal string GetString(Socket socket)
         {
             var resBuffer = new byte[4096];
-            s.Receive(resBuffer);
+            socket.Receive(resBuffer);
             return Encoding.UTF8.GetString(resBuffer)?.Trim().TrimEnd('\0');
         }
 
@@ -27,24 +27,24 @@ namespace EmailValidator.Controllers
         {
             var ipAddr = IPAddress.Parse(ip);
             var endPoint = new IPEndPoint(ipAddr, 25);
-            Socket s = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            s.Connect(endPoint);
-            var hello = GetString(s);
-            Send("helo hi",s);
+            var socket = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            socket.Connect(endPoint);
+            
+            Send("helo hi",socket);
 
-            var res = GetString(s);
+            var res = GetString(socket);
             
             if (res.Length>0)
             {
                 ServerAnswer = true;
-                Send("mail from: <mailboxcheck@cavagent.com>", s);
-                var fromAnswer = GetString(s);
-                Send("rcpt to: <"+email+">", s);
-                var result = GetString(s);
+                Send("mail from: <mailboxcheck@cavagent.com>", socket);
+                var fromAnswer = GetString(socket);
+                Send("rcpt to: <"+email+">", socket);
+                var result = GetString(socket);
                 if (result.Contains(" OK") || result.Contains("250"))
                     Exists = true;
             }
-            Send("quit", s);
+            Send("quit", socket);
 
         }
     }

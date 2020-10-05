@@ -7,23 +7,23 @@ namespace EmailValidator.Controllers
 {
     public class MailBoxResult
     {
-        public bool Exists { get; set; }
-        public bool ServerAnswer { get; set; }
+        public bool Exists { get; private set; }
+        public bool ServerAnswer { get; private set; }
 
-        internal void Send(string data, Socket socket)
+        private void Send(string data, Socket socket)
         {
             var sendData = Encoding.UTF8.GetBytes(data+"\r\n");
             socket.Send(sendData);
         }
 
-        internal string GetString(Socket socket)
+        private string GetString(Socket socket)
         {
             var resBuffer = new byte[4096];
             socket.Receive(resBuffer);
             return Encoding.UTF8.GetString(resBuffer)?.Trim().TrimEnd('\0');
         }
 
-        internal void Validate(string ip, string email)
+        public void Validate(string ip, string email)
         {
             var ipAddr = IPAddress.Parse(ip);
             var endPoint = new IPEndPoint(ipAddr, 25);
